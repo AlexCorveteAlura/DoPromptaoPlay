@@ -22,19 +22,42 @@
             line-height: 1.6;
         }
 
+        /* HEADER AJUSTADO PARA O MASCOTE */
         header {
-            padding: 4rem 1rem; /* Aumentei um pouco o padding */
-            text-align: center;
-            background: url('gralhaHeader.png') no-repeat center center;
+            min-height: 400px;
+            padding: 2rem 10%; /* Recuo maior na esquerda para o texto */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start; /* Alinha o texto na esquerda (área do quadro) */
+            text-align: left;
+            
+            /* Gradiente escuro na esquerda para dar leitura ao texto e a imagem do mascote */
+            background: linear-gradient(to right, rgba(15, 23, 42, 0.9) 10%, rgba(15, 23, 42, 0) 60%), 
+                        url('gralhaHeader.png') no-repeat center center;
             background-size: cover;
-            border-bottom: 3px solid var(--primary);
+            border-bottom: 4px solid var(--primary);
         }
-        
 
-        header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-        header p { opacity: 0.9; font-weight: 300; }
+        header h1 { 
+            font-size: 3rem; 
+            margin-bottom: 0.5rem; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.9);
+        }
 
-        main { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+        header p { 
+            font-size: 1.2rem;
+            max-width: 500px;
+            opacity: 0.9; 
+            font-weight: 300; 
+            text-shadow: 1px 1px 10px rgba(0,0,0,0.9);
+            border-left: 4px solid var(--primary);
+            padding-left: 15px;
+        }
+
+        main { max-width: 1000px; margin: 3rem auto; padding: 0 1rem; }
 
         /* Seção do Vídeo */
         .video-container {
@@ -44,8 +67,8 @@
             overflow: hidden;
             border-radius: 12px;
             background: #000;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 4rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
         }
 
         .video-container iframe {
@@ -68,38 +91,63 @@
             background: var(--card-bg);
             border-radius: 12px;
             overflow: hidden;
-            transition: transform 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            flex-direction: column;
         }
 
-        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .card:hover { 
+            transform: translateY(-8px); 
+            border-color: var(--primary);
+            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2);
+        }
 
         .card img {
             width: 100%;
-            aspect-ratio: 1/1; /* Mantém o formato 1080x1080 */
+            aspect-ratio: 1/1;
             object-fit: cover;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
         }
 
-        .card-content { padding: 1.5rem; }
-        .card-content h3 { margin-bottom: 0.5rem; color: var(--primary); }
+        .card-content { 
+            padding: 1.5rem; 
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-content h3 { margin-bottom: 0.5rem; color: var(--primary); font-size: 1.1rem; }
+        .card-content p { font-size: 0.9rem; margin-bottom: 1.5rem; opacity: 0.8; }
         
         .btn {
             display: inline-block;
-            margin-top: 1rem;
-            padding: 0.6rem 1.2rem;
+            text-align: center;
+            padding: 0.7rem 1.2rem;
             background: var(--primary);
             color: var(--dark);
             text-decoration: none;
             border-radius: 6px;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            transition: opacity 0.2s;
         }
+
+        .btn:hover { opacity: 0.9; }
 
         footer {
             text-align: center;
-            padding: 3rem 1rem;
+            padding: 4rem 1rem;
             font-size: 0.8rem;
-            opacity: 0.6;
+            opacity: 0.5;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 3rem 5%; text-align: center; align-items: center; }
+            header h1 { font-size: 2.2rem; }
+            header p { border-left: none; padding-left: 0; }
         }
     </style>
 </head>
@@ -107,50 +155,54 @@
 
     <header>
         <h1>Do Prompt ao Play</h1>
-        <p>Criação Audiovisual com Inteligência Artificial | SEED PR & Alura</p>
+        <p>Criação Audiovisual com Inteligência Artificial <br> SEED PR & Alura</p>
     </header>
 
     <main>
         <section>
-            <h2 style="margin-bottom: 1rem; text-align: center;">Vídeo Passo-a-Passo da Oficina</h2>
+            <h2 style="margin-bottom: 1.5rem; text-align: center; font-weight: 300;">Documentário da Oficina</h2>
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/SEU_ID_AQUI" allowfullscreen></iframe>
             </div>
         </section>
 
-        <h2 style="margin-bottom: 1.5rem; border-left: 5px solid var(--primary); padding-left: 1rem;">Galeria de Produções</h2>
+        <h2 style="margin-bottom: 2rem; border-left: 5px solid var(--primary); padding-left: 1rem; text-transform: uppercase; font-size: 1.2rem;">Galeria de Produções</h2>
+        
         <div class="project-grid">
             
             <div class="card">
-                <img src="simonegomesartesite.png" alt="Arte Digital">
+                <img src="simonegomesartesite.png" alt="Arte Agrinho 2026">
                 <div class="card-content">
-                    <h3>Divulgação Concurso Agrinho de Programação 2026</h3>
-                    <p>Divulgação do Agrinho 2026.</p>
+                    <h3>Divulgação Agrinho 2026</h3>
+                    <p>Produção da professora Simone Gomes focada no concurso Agrinho de Programação.</p>
                     <a href="https://simonegomesfazolini.github.io/Divulgacao-Concurso-Agrinho-de-Programacao-2026/" class="btn" target="_blank">Acessar o site</a>
                 </div>
             </div>
+
             <div class="card">
-                <img src="LINK_DA_SUA_IMAGEM_AQUI.jpg" alt="Arte Digital">
+                <img src="gralhaHeader.png" alt="Tema Musical">
                 <div class="card-content">
-                    <h3>Tema da oficina</h3>
-                    <p>Tema musical da Oficina.</p>
-                    <a href="https://alexcorvetealura.github.io/hardForma-o/" class="btn" target="_blank">Acessar o site</a>
+                    <h3>Tema "Do Giz ao Git"</h3>
+                    <p>Música oficial da oficina, criada com IA explorando o tema da evolução tecnológica.</p>
+                    <a href="https://alexcorvetealura.github.io/hardForma-o/" class="btn" target="_blank">Ver Detalhes</a>
                 </div>
             </div>
+
             <div class="card">
-                <img src="LINK_DA_SUA_IMAGEM_AQUI.jpg" alt="Arte Digital">
+                <img src="https://via.placeholder.com/1080" alt="Em breve">
                 <div class="card-content">
-                    <h3>Divulgação Concurso Agrinho de Programação 2026</h3>
-                    <p>Descrição curta da música e do conceito visual gerado na oficina.</p>
-                    <a href="https://simonegomesfazolini.github.io/Divulgacao-Concurso-Agrinho-de-Programacao-2026/" class="btn" target="_blank">Ouvir Música</a>
+                    <h3>Nova Produção IA</h3>
+                    <p>Trabalho audiovisual em desenvolvimento pelos Embaixadores do Paraná.</p>
+                    <a href="#" class="btn" style="background: #475569; pointer-events: none;">Em breve</a>
                 </div>
             </div>
+
             <div class="card">
-                <img src="LINK_DA_SUA_IMAGEM_AQUI.jpg" alt="Arte Digital">
+                <img src="https://via.placeholder.com/1080" alt="Em breve">
                 <div class="card-content">
-                    <h3>Divulgação Concurso Agrinho de Programação 2026</h3>
-                    <p>Descrição curta da música e do conceito visual gerado na oficina.</p>
-                    <a href="https://simonegomesfazolini.github.io/Divulgacao-Concurso-Agrinho-de-Programacao-2026/" class="btn" target="_blank">Ouvir Música</a>
+                    <h3>Nova Produção IA</h3>
+                    <p>Trabalho audiovisual em desenvolvimento pelos Embaixadores do Paraná.</p>
+                    <a href="#" class="btn" style="background: #475569; pointer-events: none;">Em breve</a>
                 </div>
             </div>
 
@@ -158,7 +210,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 - Programação Paraná. Desenvolvido durante a Formação de Embaixadores.</p>
+        <p>&copy; 2026 - PROGRAMAÇÃO PARANÁ <br> Desenvolvido durante a Formação de Embaixadores</p>
     </footer>
 
 </body>
